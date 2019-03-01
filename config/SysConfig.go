@@ -9,6 +9,7 @@ type SysConfig struct {
 	Total         Total         `toml:"total"`
 	Iris          iris          `toml:"iris"`
 	ServiceConfig serviceConfig `toml:"serviceConfig"`
+	AppPool       AppPool       `toml:"appPool"`
 }
 
 type iris struct {
@@ -32,6 +33,7 @@ func (sc *SysConfig) FormatConfig() {
 	sc.Total.FormatConfig()
 	sc.Iris.FormatConfig()
 	sc.ServiceConfig.FormatConfig()
+	sc.AppPool.FormatConfig()
 }
 
 //格式化
