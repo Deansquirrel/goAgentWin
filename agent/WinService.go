@@ -41,6 +41,9 @@ func (ws *winService) IsRunning() (bool, error) {
 	cmd := exec.Command("sc", "query", ws.Name)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
+		if err.Error() == "exit status 1060" {
+			return false, errors.New("指定的服务[" + ws.Name + "]未安装")
+		}
 		return false, err
 	}
 	if strings.Index(string(out), "STOPPED") > 0 {

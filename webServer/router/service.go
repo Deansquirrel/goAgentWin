@@ -31,7 +31,7 @@ func serviceRestartHandler(ctx iris.Context) {
 	ws := agent.NewWinService(info.ServiceName)
 	err = ws.Restart()
 	if err != nil {
-		ctx.StatusCode(iris.StatusBadRequest)
+		ctx.StatusCode(iris.StatusInternalServerError)
 		ro := object.NewErrReturn(err)
 		writeResponse(ctx, ro)
 		return
