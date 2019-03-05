@@ -4,8 +4,8 @@ import "strings"
 
 type AppPool struct {
 	Path         string `toml:"path"`
-	StartDelay   int    `toml:"restartDelay"`
-	StartTimeout int    `toml:"restartTimeout"`
+	StartDelay   int    `toml:"startDelay"`
+	StartTimeout int    `toml:"startTimeout"`
 }
 
 func (ap *AppPool) FormatConfig() {
@@ -14,8 +14,8 @@ func (ap *AppPool) FormatConfig() {
 	if ap.Path == "" {
 		ap.Path = "C:\\Windows\\System32\\INetSrv\\AppCmd.exe"
 	}
-	if ap.StartDelay < 15 {
-		ap.StartDelay = 15
+	if ap.StartDelay < 5 {
+		ap.StartDelay = 5
 	}
 	//默认300秒超时
 	if ap.StartTimeout == 0 {

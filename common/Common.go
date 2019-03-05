@@ -8,7 +8,7 @@ import (
 )
 
 //获取配置
-func GetServerConfig(fileName string) (*config.SysConfig, error) {
+func GetSysConfig(fileName string) (*config.SysConfig, error) {
 	path, err := goToolCommon.GetCurrPath()
 	if err != nil {
 		return nil, err

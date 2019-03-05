@@ -32,7 +32,7 @@ func main() {
 	log.Warn("程序启动")
 	defer log.Warn("程序退出")
 	//==================================================================================================================
-	config, err := common.GetServerConfig("config.toml")
+	config, err := common.GetSysConfig("config.toml")
 	if err != nil {
 		log.Error("加载配置文件时遇到错误：" + err.Error())
 		return

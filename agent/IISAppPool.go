@@ -55,6 +55,7 @@ func (ap *iisAppPool) Restart() error {
 			return nil
 		}
 		if time.Now().After(outTime) {
+			log.Error(fmt.Sprintf("Restart AppPool  %s timeout", ap.Name))
 			return errors.New("timeout")
 		}
 	}
@@ -99,6 +100,7 @@ func (ap *iisAppPool) IsRunning() (bool, error) {
 
 //启动IIS应用程序池
 func (ap *iisAppPool) Start() error {
+	log.Debug("Start AppPool " + ap.Name)
 	exist, err := ap.isExist()
 	if err != nil {
 		return err
@@ -124,6 +126,7 @@ func (ap *iisAppPool) Start() error {
 
 //停止IIS应用程序池
 func (ap *iisAppPool) Stop() error {
+	log.Debug("Stop AppPool " + ap.Name)
 	exist, err := ap.isExist()
 	if err != nil {
 		return err

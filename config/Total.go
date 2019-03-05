@@ -16,4 +16,15 @@ func (t *Total) FormatConfig() {
 	}
 	//设置字符串转换为小写
 	t.LogLevel = strings.ToLower(t.LogLevel)
+	t.LogLevel = t.checkLogLevel(t.LogLevel)
+}
+
+//校验SysConfig中iris日志级别设置
+func (t *Total) checkLogLevel(level string) string {
+	switch level {
+	case "debug", "info", "warn", "error":
+		return level
+	default:
+		return "warn"
+	}
 }
