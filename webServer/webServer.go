@@ -65,7 +65,6 @@ func (ws *webServer) irisInit(app *iris.Application) {
 
 //iris添加路由
 func (ws *webServer) irisRouter(app *iris.Application) {
-	//wsRouter.AddWebPartyClientInfo(app)
 	wsRouter.AddWebPartBase(app)
 	wsRouter.AddWebPartService(app)
 	wsRouter.AddWebPartIISAppPool(app)
